@@ -9,7 +9,7 @@ export class BookService {
   private readonly http = inject(HttpClient);
 
   readonly books = toSignal(
-    this.http.get<Book[]>('/books.json').pipe(
+    this.http.get<Book[]>('books.json').pipe(
       catchError(error => {
         console.error('Impossible de charger les livres', error);
         return of([]);

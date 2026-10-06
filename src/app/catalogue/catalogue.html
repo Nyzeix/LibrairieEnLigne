@@ -1,0 +1,10 @@
+<h1>Catalogue des livres</h1>
+<input class="filtre-auteur" placeholder="Filtrer par auteur" (input)="filtre.set($any($event.target).value)">
+<p>{{ resultats().length }} livre(s)</p>
+<ul class="catalogue">
+    @for (livre of resultats(); track livre.id) {
+    <li>
+        <app-book-card [livre]="livre" />
+    </li>
+    }
+</ul>

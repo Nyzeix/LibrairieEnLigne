@@ -1,0 +1,46 @@
+.livre {
+    display: flex;
+    gap: 24px;
+}
+
+.couv {
+    width: 180px;
+    height: 260px;
+    background: var(--quaternary);
+    color: var(--primary);
+    padding: 16px;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+
+.prix {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+button {
+    background: var(--primary);
+    color: var(--on-primary);
+    border: 0;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+button:disabled {
+    background: var(--secondary);
+}
+
+.suggestions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1rem;
+}
+
+.auteur {
+    font-size: 18px;
+    font-style: italic;
+    margin: 0px 0px;
+    margin-left: 20px;
+}

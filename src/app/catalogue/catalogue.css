@@ -1,0 +1,32 @@
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.catalogue>li {
+    min-width: 0;
+}
+
+.filtre-auteur {
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0.2rem 0.2rem;
+    background-color: var(--quaternary);
+    border: 1px solid var(--tertiary);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 12%, transparent);
+    color: inherit;
+    text-decoration: none;
+}
+
+.filtre-auteur:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--secondary) 12%, transparent);
+}

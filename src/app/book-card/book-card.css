@@ -1,0 +1,56 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
+.carte-livre {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1.1rem 1.2rem;
+    background-color: var(--quaternary);
+    border: 1px solid var(--tertiary);
+    border-left: 3px solid var(--secondary);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 12%, transparent);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 180ms ease;
+}
+
+.carte-livre:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+.carte-livre_auteur {
+    margin: 0 0 0.1rem;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.carte-livre_titre {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.carte-livre_prix {
+    margin: 0.8rem 0 0;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+@media (hover: hover) {
+    .carte-livre:hover {
+        transform: translateY(-3px);
+        background-color: color-mix(in srgb, var(--tertiary) 25%, var(--quaternary));
+        box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 18%, transparent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carte-livre {
+        transition: none;
+    }
+}

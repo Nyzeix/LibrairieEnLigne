@@ -1,0 +1,20 @@
+@if (livre(); as l) {
+<div class="livre">
+    <div class="couv">{{ l.titre }}</div>
+    <div class="infos">
+        <h1>{{ l.titre }}</h1>
+        <p class="auteur">{{ l.auteur }}</p>
+        <p class="prix">{{ l.prix }} €</p>
+        <button class="ajouter-panier-button" [disabled]="ajoute()" (click)="ajouter()">
+            {{ ajoute() ? 'Ajouté' : 'Ajouter au panier' }}</button>
+    </div>
+</div>
+<h2>Vous aimerez aussi</h2>
+<div class="suggestions">
+    @for (s of suggestions(); track s.id) {
+    <app-book-card [livre]="s" />
+    }
+</div>
+} @else {
+<p>Ce livre n'existe pas.</p>
+}

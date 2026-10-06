@@ -16,6 +16,12 @@ export const routes: Routes = [
         loadComponent: () => import('./fiche/fiche').then(m => m.Fiche)
     },
     {
+        path: 'cart',
+        loadComponent: () => import('./cart/cart').then(m => m.Panier)
+    },
+
+    // Not Found
+    {
         path: '**',
         loadComponent: () => import('./not-found/not-found').then(m => m.NotFound)
     },

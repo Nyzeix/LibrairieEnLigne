@@ -1,0 +1,40 @@
+<article class="cart-product">
+  <a class="cart-product__link" [routerLink]="['/book', livre().id]">
+    <h2>{{ livre().titre }}</h2>
+    <p>{{ livre().auteur }}</p>
+  </a>
+
+  <div class="cart-product__controls">
+    <div class="cart-product__quantity">
+      <span>Quantité</span>
+      <div class="quantity-stepper" [attr.aria-label]="'Quantité de ' + livre().titre">
+        <button
+          type="button"
+          [attr.aria-label]="'Diminuer la quantité de ' + livre().titre"
+          [disabled]="quantite() <= 1"
+          (click)="diminuer()">
+          −
+        </button>
+        <output aria-live="polite">{{ quantite() }}</output>
+        <button
+          type="button"
+          [attr.aria-label]="'Augmenter la quantité de ' + livre().titre"
+          (click)="augmenter()">
+          +
+        </button>
+      </div>
+    </div>
+
+    <p class="cart-product__subtotal">
+      {{ formateurPrix.format(livre().prix * quantite()) }}
+    </p>
+
+    <button
+      class="cart-product__remove"
+      type="button"
+      [attr.aria-label]="'Supprimer ' + livre().titre + ' du panier'"
+      (click)="supprimer()">
+      Supprimer
+    </button>
+  </div>
+</article>

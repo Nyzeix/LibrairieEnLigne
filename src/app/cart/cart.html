@@ -1,0 +1,36 @@
+<section class="cart-page" aria-labelledby="cart-title">
+    <header class="cart-header">
+        <h1 id="cart-title">Votre panier</h1>
+    </header>
+
+    @if (articles().length > 0) {
+    <div class="cart-layout">
+        <ul class="cart-list" aria-label="Livres dans votre panier">
+            @for (item of articles(); track item.livreId) {
+            <li>
+                <app-cart-product [livre]="item.livre" [quantite]="item.quantite" />
+            </li>
+            }
+        </ul>
+
+        <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title">Récapitulatif</h2>
+            <dl>
+                <div>
+                    <dt>Nombre d'articles</dt>
+                    <dd>{{ nombreArticles() }}</dd>
+                </div>
+                <div class="cart-summary__total">
+                    <dt>Total</dt>
+                    <dd>{{ formateurPrix.format(prixTotal()) }}</dd>
+                </div>
+            </dl>
+        </aside>
+    </div>
+    } @else {
+    <div class="cart-empty">
+        <p>Votre panier est vide pour le moment.</p>
+        <a routerLink="/catalogue">Découvrir le catalogue</a>
+    </div>
+    }
+</section>

@@ -1,6 +1,7 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, signal, inject } from '@angular/core';
 import { LIVRES } from '../livres';
 import { BookCard } from '../book-card/book-card';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-fiche',
@@ -17,11 +18,11 @@ export class Fiche {
     LIVRES.filter(l => l.id !== Number(this.id()))
       .slice(0, 4));
 
-  protected readonly panier = signal<number[]>([]);
+  protected readonly cart = inject(CartService);
   protected readonly ajoute = computed(() =>
-    this.panier().includes(Number(this.id())));
+    this.cart.items().some(item => item.livreId === Number(this.id())));
   protected ajouter() {
-    this.panier.update(p => [...p, Number(this.id())]);
+    this.cart.add(Number(this.id()));
   }
 }
 

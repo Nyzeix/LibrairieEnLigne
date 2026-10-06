@@ -31,3 +31,16 @@ Ouvrez ensuite [http://localhost:4200](http://localhost:4200). L'application se 
 - Angular 21
 - TypeScript
 - Vitest
+
+
+## Faire grandir le projet du portfolio
+
+Chaque piste ajoute une notion d'Angular. Faites-les dans l'ordre, et republiez après chacune avec la commande de l'étape 8.
+
+| Piste | Ce qu'il faut ajouter | La notion |
+| --- | --- | --- |
+| **Un panier pour tout le site** | un compteur dans l'en-tête, partagé entre les fiches | un service, injecté avec `inject()` |
+| **Un panier qui survit au F5** | sauver la liste des numéros dans le navigateur | `localStorage` et `effect()` |
+| **Une page « Mon panier »** | la route `/panier`, le total en euros | une nouvelle route et un `computed` |
+| **Des livres chargés depuis un fichier** | `livres.json` dans `public`, lu au démarrage | `HttpClient` |
+| **Une vraie page 404** | un composant pour toute adresse inconnue | la route `path: '**'` |

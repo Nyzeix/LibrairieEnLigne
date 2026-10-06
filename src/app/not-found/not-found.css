@@ -1,0 +1,63 @@
+.not-found {
+    min-height: 55vh;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem 0;
+}
+
+.not-found__content {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.not-found__code {
+    margin: 0 0 .75rem;
+    color: var(--secondary);
+    font-size: .875rem;
+    font-weight: 700;
+}
+
+.not-found h1 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.not-found__message {
+    margin: 1rem auto 1.5rem;
+    max-width: 28rem;
+    line-height: 1.6;
+}
+
+.not-found__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: .75rem 1rem;
+    border-radius: 4px;
+    background: var(--primary);
+    color: var(--on-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .15s ease;
+}
+
+.not-found__button:hover,
+.not-found__button:focus-visible {
+    background: var(--secondary);
+}
+
+.not-found__button:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .not-found__button {
+        transition: none;
+    }
+}

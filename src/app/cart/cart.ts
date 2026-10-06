@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LIVRES } from '../livres';
 import { CartService } from '../services/cart-service';
 import { CartProduct } from './cart-product/cart-product';
+import { BookService } from '../services/book-service';
 
 @Component({
   selector: 'app-panier',
@@ -14,11 +14,12 @@ import { CartProduct } from './cart-product/cart-product';
 export class Panier {
   // Dépendance
   protected readonly cart = inject(CartService);
+  protected readonly livres = inject(BookService).books;
 
   // Récupération des articles complets à partir de la liste d'ID obtenu depius la dépendance
   protected readonly articles = computed(() =>
     this.cart.items().flatMap(item => {
-      const livre = LIVRES.find(livre => livre.id === item.livreId);
+      const livre = this.livres().find(livre => livre.id === item.livreId);
       return livre ? [{ ...item, livre }] : [];
     })
   );

@@ -1,6 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { CartService } from './services/cart-service';
+import { BookService } from './services/book-service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,5 @@ import { CartService } from './services/cart-service';
 })
 export class App {
   readonly cart = inject(CartService)
+  readonly books = inject(BookService)
 }

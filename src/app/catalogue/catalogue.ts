@@ -1,6 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
-import { LIVRES } from '../livres';
+import { Component, computed, signal, inject } from '@angular/core';
 import { BookCard } from '../book-card/book-card';
+import { BookService } from '../services/book-service';
 
 @Component({
   selector: 'app-catalogue',
@@ -9,10 +9,10 @@ import { BookCard } from '../book-card/book-card';
   styleUrl: './catalogue.css',
 })
 export class Catalogue {
-  protected readonly livres = LIVRES;
+  protected readonly livres = inject(BookService).books;
   protected readonly filtre = signal('');
   protected readonly resultats = computed(() =>
-    LIVRES.filter(l => l.auteur.toLowerCase()
+    this.livres().filter(l => l.auteur.toLowerCase()
       .includes(this.filtre().toLowerCase()))
   );
 }

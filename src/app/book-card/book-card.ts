@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Livre } from '../livres';
+import { Book } from '../Book';
 
 @Component({
     selector: 'app-book-card',
@@ -9,5 +9,5 @@ import { Livre } from '../livres';
     styleUrl: './book-card.css',
 })
 export class BookCard {
-    readonly livre = input.required<Livre>();
+    readonly livre = input.required<Book>();
 }

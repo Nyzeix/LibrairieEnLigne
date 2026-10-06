@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Livre } from '../../livres';
+import { Book } from '../../Book';
 import { CartService } from '../../services/cart-service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CartService } from '../../services/cart-service';
   styleUrl: './cart-product.css',
 })
 export class CartProduct {
-  readonly livre = input.required<Livre>();
+  readonly livre = input.required<Book>();
   readonly quantite = input.required<number>();
 
   private readonly cart = inject(CartService);
